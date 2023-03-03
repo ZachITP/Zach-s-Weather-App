@@ -48,7 +48,7 @@ let weather = {
         document.querySelector(".img4").src="https://openweathermap.org/img/wn/" + data.list[28].weather[0].icon + ".png";
         document.querySelector(".img5").src="https://openweathermap.org/img/wn/" + data.list[36].weather[0].icon + ".png";
 
-        const temp1= data.list[4].main.temp
+        const temp1= data.list[4].main.temp;
         const temp2= data.list[12].main.temp
         const temp3= data.list[20].main.temp
         const temp4= data.list[28].main.temp

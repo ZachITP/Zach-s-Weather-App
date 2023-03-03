@@ -23,6 +23,7 @@ All your weather in one place. see the current weather conditions and well as th
 HTML, 
 CSS,
 JavaScript,
+React Icons (VSC Extension)
 Google Fonts,
 OpenWeathermap.org,
 unsplash.com
