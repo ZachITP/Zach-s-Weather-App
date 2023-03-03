@@ -1,5 +1,9 @@
+let lat = 0 
+let lon = 0
+
+
 //display current date and time
-`use strict`;
+//`use strict`;
 function refreshTime() {
   const timeDisplay = document.getElementById("time");
   const dateString = new Date().toLocaleString();
@@ -20,9 +24,37 @@ let weather = {
         this.apiKey
         )
         .then((response) => response.json())
-        .then((data) => this.showWeather(data));
+        .then((data) => {this.showWeather(data)
+            lon = data.coord.lon
+            lat = data.coord.lat
+        console.log (data,lon,lat) })
+        .then(fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=`+lat+`&lon=`+lon+`&units=imperial&appid=`+this.apiKey)
+        .then((response) => response.json())
+        .then((data) => this.showForecast(data)))
+       
     
         
+    },
+    showForecast: function (data) {
+        const date1= data.list[4].dt_txt.split(" ")[0]
+        const date2= data.list[12].dt_txt.split(" ")[0]
+        const date3= data.list[20].dt_txt.split(" ")[0]
+        const date4= data.list[28].dt_txt.split(" ")[0]
+        const date5= data.list[36].dt_txt.split(" ")[0]
+
+        document.querySelector(".img1").src="https://openweathermap.org/img/wn/" + data.list[4].weather[0].icon + ".png";
+        document.querySelector(".img2").src="https://openweathermap.org/img/wn/" + data.list[12].weather[0].icon + ".png";
+        document.querySelector(".img3").src="https://openweathermap.org/img/wn/" + data.list[20].weather[0].icon + ".png";
+        document.querySelector(".img4").src="https://openweathermap.org/img/wn/" + data.list[28].weather[0].icon + ".png";
+        document.querySelector(".img5").src="https://openweathermap.org/img/wn/" + data.list[36].weather[0].icon + ".png";
+
+        const temp1= data.list[4].main.temp
+        const temp2= data.list[12].main.temp
+        const temp3= data.list[20].main.temp
+        const temp4= data.list[28].main.temp
+        const temp5= data.list[36].main.temp
+
+
     },
     //weather data
     showWeather: function(data) {
@@ -40,12 +72,13 @@ let weather = {
     document.querySelector(".wind").innerText = "Wind speed: " + speed + " mph";
     document.querySelector(".weather").classList.remove("loading")
     //pulls photo from the city searched
-    document.body.style.backgroundImage = "url('https://source.unsplash.com/1600x900/?" + landscape + "')"
+    //document.body.style.backgroundImage = "url('https://source.unsplash.com/1600x900/?" + city + "')"
     },
 
    //navigation bar function
     navigation: function () {
     this.pullWeather(document.querySelector(".navigation-bar").value);
+   
     }
  
 };
@@ -55,6 +88,7 @@ document
 .querySelector(".navigation button")
 .addEventListener("click", function () {
 weather.navigation();
+
 
 //event listener for ENTER key
 document
