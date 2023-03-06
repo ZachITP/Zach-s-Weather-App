@@ -65,7 +65,7 @@ button {
 button:hover {
 background:#7c7c7c6b
 }
-
+/*smaller card on initial page*/
 .weather.loading {
   visibility:hidden;  
   max-height:20px;
@@ -90,7 +90,7 @@ background:#7c7c7c6b
   color: black;
   transition: 0.3s ease-in-out;
   }
-  
+  /* recent search hover*/
   .dropbtn:hover, .dropbtn:focus {
     background-color:#7c7c7c6b ;
   }

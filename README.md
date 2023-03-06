@@ -6,8 +6,8 @@
 
 #### Purpose
 All your weather in one place. see the current weather conditions and well as the 5-day forecast for your area. What to know the weather of a different location? simply search for different city. your resent searches are saved in local storage for you to come back to. 
-<img src="./Assets/.png" alt="" title="">
-<img src="./Assets/.png" alt="" title="">
+<img src="./Assets/search.png" alt="Seach bar screen" title="Seach by city">
+<img src="./Assets/history.png" alt="search history" title="recent searches">
 <img src="./Assets/.png" alt="" title="">
 
 ## Usage
@@ -23,7 +23,7 @@ All your weather in one place. see the current weather conditions and well as th
 HTML, 
 CSS,
 JavaScript,
-React Icons (VSC Extension)
+React Icons (VSC Extension),
 Google Fonts,
 OpenWeathermap.org,
 unsplash.com
@@ -31,6 +31,8 @@ unsplash.com
 
 
 ## Credits
+
+Special Thanks to UTSA Tutors Andrew Mason and Alistair Rowden for helping with this project
 
 
 

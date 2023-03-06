@@ -1,9 +1,9 @@
+//latitude and longitude puller from current weather to get forecast data
 let lat = 0 
 let lon = 0
 
 
 //display current date and time
-//`use strict`;
 function refreshTime() {
   const timeDisplay = document.getElementById("time");
   const dateString = new Date().toLocaleString();
@@ -14,7 +14,7 @@ function refreshTime() {
   setInterval(refreshTime, 1000);
 
 let weather = {
-    //OpenWeatherMap api
+    //OpenWeatherMap api current weather, forecast
     "apiKey": "53308346e662bc908243590c79903419",
     pullWeather: function (city) {
      fetch(
@@ -35,29 +35,8 @@ let weather = {
     
         
     },
-    showForecast: function (data) {
-        const date1= data.list[4].dt_txt.split(" ")[0]
-        const date2= data.list[12].dt_txt.split(" ")[0]
-        const date3= data.list[20].dt_txt.split(" ")[0]
-        const date4= data.list[28].dt_txt.split(" ")[0]
-        const date5= data.list[36].dt_txt.split(" ")[0]
-
-        document.querySelector(".img1").src="https://openweathermap.org/img/wn/" + data.list[4].weather[0].icon + ".png";
-        document.querySelector(".img2").src="https://openweathermap.org/img/wn/" + data.list[12].weather[0].icon + ".png";
-        document.querySelector(".img3").src="https://openweathermap.org/img/wn/" + data.list[20].weather[0].icon + ".png";
-        document.querySelector(".img4").src="https://openweathermap.org/img/wn/" + data.list[28].weather[0].icon + ".png";
-        document.querySelector(".img5").src="https://openweathermap.org/img/wn/" + data.list[36].weather[0].icon + ".png";
-
-        const temp1= data.list[4].main.temp;
-        const temp2= data.list[12].main.temp
-        const temp3= data.list[20].main.temp
-        const temp4= data.list[28].main.temp
-        const temp5= data.list[36].main.temp
-
-
-    },
-    //weather data
-    showWeather: function(data) {
+     //weather data
+     showWeather: function(data) {
         const { name } = data; 
         const { icon, description } = data.weather[0];
         const { temp, humidity } = data.main;
@@ -74,6 +53,30 @@ let weather = {
     //pulls photo from the city searched
     //document.body.style.backgroundImage = "url('https://source.unsplash.com/1600x900/?" + city + "')"
     },
+
+    //forecast data 
+    showForecast: function (data) {
+        const date1= data.list[4].dt_txt.split(" ")[0]
+        const date2= data.list[12].dt_txt.split(" ")[0]
+        const date3= data.list[20].dt_txt.split(" ")[0]
+        const date4= data.list[28].dt_txt.split(" ")[0]
+        const date5= data.list[36].dt_txt.split(" ")[0]
+
+        document.querySelector(".img1").src="https://openweathermap.org/img/wn/" + data.list[4].weather[0].icon + ".png";
+        document.querySelector(".img2").src="https://openweathermap.org/img/wn/" + data.list[12].weather[0].icon + ".png";
+        document.querySelector(".img3").src="https://openweathermap.org/img/wn/" + data.list[20].weather[0].icon + ".png";
+        document.querySelector(".img4").src="https://openweathermap.org/img/wn/" + data.list[28].weather[0].icon + ".png";
+        document.querySelector(".img5").src="https://openweathermap.org/img/wn/" + data.list[36].weather[0].icon + ".png";
+
+        const temp1= data.list[4].main.temp;
+        const temp2= data.list[12].main.temp;
+        const temp3= data.list[20].main.temp;
+        const temp4= data.list[28].main.temp;
+        const temp5= data.list[36].main.temp;
+
+
+    },
+   
 
    //navigation bar function
     navigation: function () {
@@ -103,4 +106,4 @@ document
 
 });
 
-//grab forcast openweather api and insert here 
+
