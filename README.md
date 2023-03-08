@@ -5,10 +5,10 @@
 
 
 #### Purpose
-All your weather in one place. see the current weather conditions and well as the 5-day forecast for your area. What to know the weather of a different location? simply search for different city. your resent searches are saved in local storage for you to come back to. 
+All your weather in one place. See the current weather conditions as well as the 5-day forecast for your area. Want to know the weather from a different location? simply search for different a city. Your recent searches are saved in local storage for you to come back to. 
 <img src="./Assets/search.png" alt="Seach bar screen" title="Seach by city">
 <img src="./Assets/history.png" alt="search history" title="recent searches">
-<img src="./Assets/.png" alt="" title="">
+<img src="./Assets/weather.png" alt="Weather screen" title="search weather">
 
 ## Usage
 
@@ -23,6 +23,7 @@ All your weather in one place. see the current weather conditions and well as th
 HTML, 
 CSS,
 JavaScript,
+Bootstrap,
 React Icons (VSC Extension),
 Google Fonts,
 OpenWeathermap.org,

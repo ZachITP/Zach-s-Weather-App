@@ -50,8 +50,7 @@ let weather = {
     document.querySelector(".humidity").innerText = "Humidity: " + humidity + "%";
     document.querySelector(".wind").innerText = "Wind speed: " + speed + " mph";
     document.querySelector(".weather").classList.remove("loading")
-    //pulls photo from the city searched
-    //document.body.style.backgroundImage = "url('https://source.unsplash.com/1600x900/?" + city + "')"
+    
     },
 
     //forecast data 
@@ -74,14 +73,39 @@ let weather = {
         const temp4= data.list[28].main.temp;
         const temp5= data.list[36].main.temp;
 
+        document.querySelector(".temp1").textContent=temp1;
+        document.querySelector(".temp2").textContent=temp2;
+        document.querySelector(".temp3").textContent=temp3;
+        document.querySelector(".temp4").textContent=temp4;
+        document.querySelector(".temp5").textContent=temp5;
 
     },
-   
+    //save city to local storage
+    savecity: function(newCity) {
+        let allCities = JSON.parse(localStorage.getItem('saved-cities')) || [];
+        allCities.push(newCity);
+        localStorage.setItem('saved-cities', JSON.stringify(allCities))
+        
+    },
+    //display city in search history
+    displayCities: function() {
+        let allCities = JSON.parse(localStorage.getItem('saved-cities'));
+        document.querySelector('.dropdown-content').innerHTML=""
+        allCities.forEach(city => {
+    
+            let cityButton = document.createElement('button');
+            cityButton.textContent = city;
+            document.querySelector('.dropdown-content').appendChild(cityButton);
+        });
+    },
+    
+    
 
    //navigation bar function
     navigation: function () {
     this.pullWeather(document.querySelector(".navigation-bar").value);
-   
+   this.savecity(document.querySelector(".navigation-bar").value);
+   this.displayCities();
     }
  
 };
@@ -105,5 +129,7 @@ document
 
 
 });
+//display search history 
+weather.displayCities();
 
 
